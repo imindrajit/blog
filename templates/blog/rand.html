@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html>
+{% load static %}
+<head>
+	  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <link href="{% static 'css/bootstrap-fluid-adj.css' %}" rel="stylesheet">
+      <link href="{% static 'css/bootstrap.min.css' %}" rel="stylesheet" media="screen">
+      <link href="{% static 'css/bootstrap-responsive.css' %}" rel="stylesheet">
+
+	  <title>
+		New BlogPost
+	  </title>            
+</head>           
+	
+<body>                         
+	  <nav class="navbar navbar-inverse navbar-fixed-top" role="navigation">
+      <div class="container-fluid">
+      <div class="navbar-header">
+      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+        <span class="sr-only">Toggle navigation</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+      </div>
+    
+      <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+      <ul class="nav navbar-nav">
+        <li class="active"><a href="/about/">About</a></li>
+      </ul>
+
+      <ul class="nav navbar-nav navbar-right">
+        <li class="navbar-text">Welcome, {{ user.username }}!
+        </li>
+        <li class="active"><a href="/profile/">Profile</a></li>
+        <li><a href="/logout/" style = "color: #1E90FF">Logout</a></li>
+      </ul>
+      
+      </div>
+      </div>
+      </nav>
+	 	
+	  <div id="container">
+		{% if posted %}
+        <h2>Blog Engine says: <strong>Thank you for writing a new blog post!</strong><br /></h2>
+        <h3><a href="/blog/1/" style = "color: #1E90FF">Back To Homepage</a><br /></h3>
+        {% else %}
+		<h1>Add a New Blog Post</h1>
+        
+        <form class="form-add_blog_post span8" id="post_form" name="blogpost" method="post" action="/add_blog_post/"
+              enctype="multipart/form-data">
+        
+        {% csrf_token %}
+      <div>
+        <label for="title">Title</label> <input type="text" name="title" value="" id="title" size="60">
+      </div>
+      <div>
+        <label for="slug_input">URL</label> <input type="text" name="url" id="slug_input" value="" class="slug" size="60" readonly>
+      </div>
+           
+      <div>
+        <label for="content">Content</label><br /> 
+        <textarea id="content" name="content" cols="64" rows="15" ></textarea>
+      </div><br /><br />
+        <input type="submit" id="submit" name="submit" onclick="" value="Create Blog Post" />
+      </form>              
+        {% endif %}
+	  </div>
+</body>
+      <script src="http://ajax.googleapis.com/ajax/libs/jquery/1/jquery.min.js" type="text/javascript">
+      </script>
+      <script type="text/javascript" src="{{ STATIC_URL }}js/jquery.slugify.js">
+      </script>
+
+      <script type="text/javascript" charset="utf-8">
+            $().ready(function () {
+                $('.slug').slugify('#title');
+            }); 
+    </script>   
+    <script src="{% static 'js/jquery-2.0.3.min.js' %}">
+    </script>
+    <script src="{% static 'js/bootstrap.min.js' %}"></script>
+
+</html><br /><br />

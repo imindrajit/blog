@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+{% load static %}
+<html>
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="{% static 'css/bootstrap-fluid-adj.css' %}" rel="stylesheet">
+    <link href="{% static 'css/bootstrap.min.css' %}" rel="stylesheet" media="screen">
+    <link href="{% static 'css/bootstrap-responsive.css' %}" rel="stylesheet">
+
+    <title>Login</title>
+</head>
+<body>
+    {% block body_block %}
+    <div class="jumbotron">
+        <h1>Login to BlogEngine</h1>
+        <div class="container">
+        <form class="form-signin span4" id="login_form" method="post" action="/login/">
+        <h2 class="form-signin-heading">Please Log in</h2>
+        {% csrf_token %}
+ 
+        Username: <input type="text" class="input-block-level" placeholder="Username" name="username" value="" size="50" />
+        <br />
+        Password: <input type="password" class="input-block-level" placeholder="Password" name="password" value="" size="50" />
+        <br />
+        <button class="btn btn-primary" type="submit">Log in</button>
+        </form>
+        <br/>
+    </div>
+
+    </div>
+    {% endblock %}
+</body>
+    <script src="{% static 'js/jquery-2.1.1.min.js' %}">
+    </script>
+    <script src="{% static 'js/bootstrap.min.js' %}">
+    </script>
+</html><br /><br /><br /><br />
+<footer>
+    <div class="container">
+    <p>&copy; BlogEngine 2014</p>
+    </div>
+</footer>
+</html>
