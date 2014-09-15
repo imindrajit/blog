@@ -10,6 +10,27 @@
     <title>Login</title>
 </head>
 <body>
+    <nav class="navbar navbar-inverse navbar-fixed-top" role="navigation">
+    <div class="container-fluid">
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+      <span class="sr-only">Toggle navigation</span>
+      <span class="icon-bar"></span>
+      <span class="icon-bar"></span>
+      <span class="icon-bar"></span>
+      </button>
+    </div>
+
+    <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+     <ul class="nav navbar-nav">
+       <li class="active"><a href="/about/">About</a></li>
+       <li class="active"><a href="/blogengine/">Home</a></li>
+       <li class="navbar-text">&nbsp;&nbsp;&nbsp;&nbsp;Welcome to BlogEngine!</li>
+     </ul>
+    </div>
+    </div>
+    </nav>
+
     {% block body_block %}
     <div class="jumbotron">
         <h1>Login to BlogEngine</h1>
