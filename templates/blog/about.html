@@ -25,11 +25,15 @@
 
     
       <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+      <ul class="nav navbar-nav">
+       <li class="active"><a href="/blogengine/">Home</a></li>
+       <li class="navbar-text">&nbsp;&nbsp;&nbsp;&nbsp;Welcome to BlogEngine!</li>
+     </ul>
       {% if user.is_authenticated %}
       <ul class="nav navbar-nav navbar-right">
         <li class="active"><a href="/add_blog_post/">Add a  new  Blog post</a>
         </li>
-        <li class="navbar-text">Welcome, {{ user.username }}!
+        <li class="navbar-text">Hi, {{ user.username }}!
         </li>
         <li class="active"><a href="/profile/">Profile</a></li>
         <li><a href="/logout/" style = "color: #1E90FF">Logout</a></li>
