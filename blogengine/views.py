@@ -1,4 +1,4 @@
-import datetime
+from date time import datetime
 from django.views.decorators.csrf import csrf_protect
 from django.contrib.auth.decorators import login_required
 from django.core.paginator import Paginator
@@ -31,10 +31,10 @@ def register(request):
 			profile.save()
 
 			registered = True
-		
+
 		else:
 			print user_form.errors, profile_form.errors
-			
+
 	else:
 		user_form = UserForm()
 		profile_form = UserProfileForm()
@@ -52,13 +52,13 @@ def user_login(request):
 		password = request.POST['password']
 
 		user = authenticate(username=username, password=password)
-			
+
 		if user:
-            	
+
 			if user.is_active:
 				login(request, user)
 					#posts = Post.objects.all().filter(post__author=name)
-				return HttpResponseRedirect('/blog/1/')
+				return HttpResponseRedirect('/blogengine/')
 			else:
 				return HttpResponse("Your Blogengine account is disabled.")
 		else:
@@ -89,7 +89,7 @@ def personalised_view(request, selected_page=1):
 		returned_page = pages.page(selected_page)
 	except EmptyPage:
 		returned_page = pages.page(1)
-	return render_to_response('blog/homepage.html',{ 'client': name , 'posts':returned_page.object_list, 'page':returned_page }, context)	
+	return render_to_response('blog/homepage.html',{ 'client': name , 'posts':returned_page.object_list, 'page':returned_page }, context)
 
 
 
@@ -112,12 +112,12 @@ def addPost(request):
 	posted = False
 
 	if request.method == 'POST':
-		
+
 		newPost = Post()
 		newPost.title = request.POST['title']
 		newPost.url = request.POST['url']
 		newPost.author = request.user
-		newPost.pub_date = datetime.datetime.now()
+		newPost.pub_date = datetime.now()
 		newPost.body = request.POST['content']
 		print newPost.body
 		newPost.views = 0;
@@ -128,8 +128,8 @@ def addPost(request):
 			newPost.save()
 			posted = True
 			#return HttpResponseRedirect('/blog/')
-			
-	
+
+
 	return render_to_response('blog/rand.html', {'posted': posted}, context)
 
 def about(request):
