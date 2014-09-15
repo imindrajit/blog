@@ -8,7 +8,7 @@ class Post(models.Model):
 	author = models.ForeignKey(User)
 	title = models.CharField(max_length=200, unique = True)
 	url = models.SlugField(max_length=40, unique=True)
-	pub_date = models.DateTimeField(auto_now_add=True)
+	pub_date = models.DateTimeField(datetime.now = True)
 	views = models.IntegerField(default=0)
 	body = models.TextField()
 
