@@ -35,7 +35,7 @@ TEMPLATE_DIRS = (
     TEMPLATE_PATH,
 )
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['sasuke.pythonanywhere.com']
 
 
 # Application definition
