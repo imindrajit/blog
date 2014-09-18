@@ -1,7 +1,7 @@
 from blogengine.models import UserProfile, Post
 from django.contrib.auth.models import User
 from django import forms
-from django.template.defaultfilters import slugify
+
 
 
 class UserForm(forms.ModelForm):
