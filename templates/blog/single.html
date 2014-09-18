@@ -29,12 +29,12 @@
 
         	      }(document, 'script', 'facebook-jssdk'));
       </script>
-      	
+
 
 
       <nav class="navbar navbar-inverse navbar-fixed-top" role="navigation">
       <div class="container-fluid">
-    
+
       <div class="navbar-header">
       <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
         <span class="sr-only">Toggle navigation</span>
@@ -69,24 +69,25 @@
      </div>
      </div>
      </nav>
-      
+
      <div class="hero-unit">
      <div class="container-fluid">
      <div class="row-fluid">
-     
+
      <div class="span9">
      {% block body_block %}
 
       <h5>{{ posts.pub_date }}</h5>
       <h1>{{ posts.title }}</h1><br /><br />
-        
-       {{posts.body|linebreaks}}<br />
+
+     {{posts.body|linebreaks}}<br />
+
+
+       {% endblock %}
+     </div>
+     </div>
      </div>
 
-       {% endblock %}   
-     </div>
-     </div>
-     </div>
      <hr>
 </body>
       <script src="{% static 'js/jquery-2.1.1.min.js' %}">
@@ -99,21 +100,37 @@
      &nbsp;<a href="https://twitter.com/share" class="twitter-share-button" data-count="none" data-dnt="true">Tweet</a>
      <script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+'://platform.twitter.com/widgets.js';fjs.parentNode.insertBefore(js,fjs);}}(document, 'script', 'twitter-wjs');
      </script>
-     
+
         {% get_comment_count for posts as comment_count %}
-        <h4>Comments: {{ comment_count }}</h4>
+        <br /><h4>Comments: {{ comment_count }}</h4><br/>
         <ol>
         {% get_comment_list for  posts as comments %}
         {% for comment in comments %}
         <li>{{ comment.user_name }}: {{ comment.comment }}</li>
-        <br />
         {% endfor %}
         </ol>
-        {% render_comment_form for posts %}
-        
+        <br/>
+       <!-- {% render_comment_form for posts %} -->
+        {% get_comment_form for posts as form %}
+        <table>
+        <form action="{% comment_form_target %}" method="post">
+            {% csrf_token %}
+            {{ form }}
+          <tr>
+            <td colspan="2">
+
+            <input type="submit" name="submit" value="Post">
+            <input type="submit" name="preview" value="Preview">
+
+            </td>
+          </tr>
+        </form>
+        </table>
+
+
 </html><br /><br /><br /><br />
 <footer>
     <div class="container">
-        <p>&copy; BlogEngine 2014</p>
+        <p align="center">&copy; BlogEngine 2014</p>
     </div>
 </footer>
