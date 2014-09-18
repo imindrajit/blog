@@ -45,20 +45,20 @@
      </div>
      </div>
      </nav>
-      
-      <h1>Recent Posts</h1>
+
+      <h1 align="center">Recent Posts</h1>
         {% if posts %}
       <ul>
 		{% for post in posts %}
         <h1><li><a href="{{ post.get_absolute_url }}">{{ post.title }}</a></li></h1>
-        <h4>{{ post.body }}</h4>
+        <h5>{{ post.body|linebreaks }}</h5>
         {% endfor %}
       </ul><br />
-        
+
 		{% else %}
-		<p> Sorry, there are no blogposts as of yet </p>
+		<p align="center"> Sorry, there are no blogposts as of yet </p>
         {% endif %}
-        
+
     <script src="{% static 'js/jquery-2.1.1.min.js' %}">
     </script>
     <script src="{% static 'js/bootstrap.min.js' %}">
@@ -67,7 +67,7 @@
 </html><br /><br /><br /><br />
 <footer>
     <div class="container">
-    <p>&copy; BlogEngine 2014</p>
+    <p align="center">&copy; BlogEngine 2014</p>
     </div>
 </footer>
- 
+
