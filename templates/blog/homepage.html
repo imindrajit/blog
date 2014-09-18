@@ -43,26 +43,26 @@
     </div>
     </nav>
 
-    <h1>This is {{ client }}'s Blog Posts</h1>
+    <h1 align="center">{{ client }}'s Blog Posts</h1>
      {% if posts %}
       <ul>
 		{% for post in posts %}
         <h1><li><a href="{{ post.get_absolute_url }}">{{ post.title }}</a></li></h1>
-        <h4>{{ post.body|linebreaks }}</h4>
+        <h5>{{ post.body|linebreaks }}</h5>
         {% endfor %}
       </ul>
         <br />
         {% if page.has_previous %}
-        <a href="/blog/{{ page.previous_page_number }}/">Previous Page</a>
+        &nbsp;&nbsp;&nbsp;&nbsp;<a href="/blog/{{ page.previous_page_number }}/">Previous Page</a>
         {% endif %}
         {% if page.has_next %}
-        <a href="/blog/{{ page.next_page_number }}/">Next Page</a>
+        &nbsp;&nbsp;&nbsp;&nbsp;<a href="/blog/{{ page.next_page_number }}/">Next Page</a>
         {% endif %}
-        
+
 		{% else %}
 		<p> Sorry, you have not posted any blogposts</p>
         {% endif %}
-        
+
     <script src="{% static 'js/jquery-2.1.1.min.js' %}">
     </script>
     <script src="{% static 'js/bootstrap.min.js' %}">
@@ -71,7 +71,7 @@
 </html><br /><br /><br /><br />
 <footer>
     <div class="container">
-    <p>&copy; BlogEngine 2014</p>
+    <p align="center">&copy; BlogEngine 2014</p>
     </div>
 </footer>
- 
+
