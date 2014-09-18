@@ -1,6 +1,6 @@
 from django.contrib.auth.models import User
 from django.db import models
-from datetime import datetime
+from django.utils import timezone
 # Create your models here.
 
 
@@ -8,7 +8,7 @@ class Post(models.Model):
 	author = models.ForeignKey(User)
 	title = models.CharField(max_length=200, unique = True)
 	url = models.SlugField(max_length=40, unique=True)
-	pub_date = models.DateTimeField(datetime.now = True)
+	pub_date = models.DateTimeField(default=timezone.now)
 	views = models.IntegerField(default=0)
 	body = models.TextField()
 
