@@ -33,12 +33,11 @@
 
     {% block body_block %}
     <div class="jumbotron">
-        <h1>Login to BlogEngine</h1>
+        <h1 align>Login to BlogEngine</h1>
         <div class="container">
         <form class="form-signin span4" id="login_form" method="post" action="/login/">
-        <h2 class="form-signin-heading">Please Log in</h2>
         {% csrf_token %}
- 
+
         Username: <input type="text" class="input-block-level" placeholder="Username" name="username" value="" size="50" />
         <br />
         Password: <input type="password" class="input-block-level" placeholder="Password" name="password" value="" size="50" />
@@ -58,7 +57,7 @@
 </html><br /><br /><br /><br />
 <footer>
     <div class="container">
-    <p>&copy; BlogEngine 2014</p>
+    <p align="center">&copy; BlogEngine 2014</p>
     </div>
 </footer>
 </html>
