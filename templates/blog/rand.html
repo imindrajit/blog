@@ -9,10 +9,10 @@
 
 	  <title>
 		New BlogPost
-	  </title>            
-</head>           
-	
-<body>                         
+	  </title>
+</head>
+
+<body>
 	  <nav class="navbar navbar-inverse navbar-fixed-top" role="navigation">
       <div class="container-fluid">
       <div class="navbar-header">
@@ -23,7 +23,7 @@
         <span class="icon-bar"></span>
       </button>
       </div>
-    
+
       <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
       <ul class="nav navbar-nav">
         <li class="active"><a href="/about/">About</a></li>
@@ -37,20 +37,21 @@
         <li class="active"><a href="/profile/">Profile</a></li>
         <li><a href="/logout/" style = "color: #1E90FF">Logout</a></li>
       </ul>
-      
+
       </div>
       </div>
       </nav>
-	 	
+
 	  <div id="container">
 		{% if posted %}
         <h2>Blog Engine says: <strong>Thank you for writing a new blog post!</strong><br /></h2>
+        <h3><a href = "/blog/1/">Back to your Posts</a></h3>
         {% else %}
-		<h1>Add a New Blog Post</h1>
-        
+		<h1>&nbsp;&nbsp;&nbsp;&nbsp;Add a New Blog Post</h1>
+
         <form class="form-add_blog_post span8" id="post_form" name="blogpost" method="post" action="/add_blog_post/"
               enctype="multipart/form-data">
-        
+
         {% csrf_token %}
       <div>
         <label for="title">Title</label> <input type="text" name="title" value="" id="title" size="60">
@@ -58,13 +59,13 @@
       <div>
         <label for="slug_input">URL</label> <input type="text" name="url" id="slug_input" value="" class="slug" size="60" readonly>
       </div>
-           
+
       <div>
-        <label for="content">Content</label><br /> 
+        <label for="content">Content</label><br />
         <textarea id="content" name="content" cols="64" rows="15" ></textarea>
       </div><br /><br />
         <input type="submit" id="submit" name="submit" onclick="" value="Create Blog Post" />
-      </form>              
+      </form>
         {% endif %}
 	  </div>
 </body>
@@ -76,8 +77,8 @@
       <script type="text/javascript" charset="utf-8">
             $().ready(function () {
                 $('.slug').slugify('#title');
-            }); 
-    </script>   
+            });
+    </script>
     <script src="{% static 'js/jquery-2.0.3.min.js' %}">
     </script>
     <script src="{% static 'js/bootstrap.min.js' %}"></script>
